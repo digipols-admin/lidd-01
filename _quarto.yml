@@ -15,6 +15,8 @@ website:
         text: Presentations        
       - href: tab-iframe/iframe-index.qmd
         text: iFrame example
+      - href: tab-lidd/lidd-index.qmd
+        text: iFrame example        
     logo: images/logo_tepak.png
 
 format:

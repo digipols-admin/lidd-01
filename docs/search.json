@@ -44,16 +44,30 @@
   {
     "objectID": "tab-lidd/lidd-index.html",
     "href": "tab-lidd/lidd-index.html",
-    "title": "Add a title",
+    "title": "Arquero",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+    "text": "Simple demonstration of Arquero using Allison Horst’s Palmer Penguins dataset."
   },
   {
-    "objectID": "tab-lidd/lidd-index.html#nemo-enim-ipsam",
-    "href": "tab-lidd/lidd-index.html#nemo-enim-ipsam",
-    "title": "Add a title",
-    "section": "Nemo enim ipsam",
-    "text": "Nemo enim ipsam\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+    "objectID": "tab-lidd/lidd-index.html#define-data",
+    "href": "tab-lidd/lidd-index.html#define-data",
+    "title": "Arquero",
+    "section": "Define data",
+    "text": "Define data"
+  },
+  {
+    "objectID": "tab-lidd/lidd-index.html#view-data-in-js",
+    "href": "tab-lidd/lidd-index.html#view-data-in-js",
+    "title": "Arquero",
+    "section": "View data in JS",
+    "text": "View data in JS\n\nimport { aq, op } from '@uwdata/arquero'\nmytable = aq.table(mydata)\nmytable.view()"
+  },
+  {
+    "objectID": "tab-lidd/lidd-index.html#interactivity",
+    "href": "tab-lidd/lidd-index.html#interactivity",
+    "title": "Arquero",
+    "section": "Interactivity",
+    "text": "Interactivity\nInput:\n\nviewof groupingvars = Inputs.checkbox(\n  [\"species\", \"island\", \"sex\"]\n)\n\n\n\n\n\n\nOutput:\n\nmytable\n  .groupby(groupingvars)\n  .filter(d =&gt; d.body_mass_g &gt; 0)\n  .rollup({\n    count: op.count(),\n    avg_mass: op.average('body_mass_g')\n   })\n  .view()"
   },
   {
     "objectID": "tab-presentation/presentation1/presentation-example.html#what-this-course-is-about",

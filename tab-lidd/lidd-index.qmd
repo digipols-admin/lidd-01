@@ -1,12 +1,49 @@
 ---
-title: "Add a title"
+title: "Tables OJS using Arquero"
+format: html
+execute:
+  echo: false
 ---
 
-This is a Quarto website.
+Simple demonstration of [Arquero](https://uwdata.github.io/arquero/) using Allison Horst's [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset. 
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+```{r}
+library(palmerpenguins)
+```
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+## Define data
 
-## Nemo enim ipsam
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+```{r}
+ojs_define(mydata = palmerpenguins::penguins)
+```
+
+## View data in JS
+
+```{ojs}
+import { aq, op } from '@uwdata/arquero'
+mytable = aq.table(mydata)
+mytable.view()
+```
+
+## Interactivity
+
+Input:
+
+```{ojs}
+viewof groupingvars = Inputs.checkbox(
+  ["species", "island", "sex"]
+)
+```
+
+Output:
+
+```{ojs}
+mytable
+  .groupby(groupingvars)
+  .filter(d => d.body_mass_g > 0)
+  .rollup({
+    count: op.count(),
+    avg_mass: op.average('body_mass_g')
+   })
+  .view()
+```
